@@ -35,3 +35,46 @@ Data550_final/
 ├─ Makefile # one-command build
 └─ README.md
 ```
+
+## How to reproduce
+```bash
+# clone and enter
+git clone git@github.com:ZJamn/Data550_final.git
+cd Data550_final
+
+# build the final report (creates report/report.html)
+make report.html
+
+Key components 
+
+Required table: generated in code/03_make_output.R
+
+Required figure: generated in code/03_make_output.R
+
+Final report: report/final_report.Rmd (rendered to report/report.html)
+
+Build rule: see Makefile
+
+Author
+
+Jiamin Zhao (Rollins School of Public Health, Emory University)
+Email: jiamin.zhao@emory.edu
+ • GitHub: ZJamn
+
+
+---
+
+### Makefile
+
+```makefile
+# Makefile for DATA 550 Final Project
+
+report.html: code/01_data_clean.R code/02_analysis.R code/03_make_output.R report/final_report.Rmd data/diabetes_binary_health_indicators_BRFSS2015.csv
+	Rscript code/01_data_clean.R
+	Rscript code/02_analysis.R
+	Rscript code/03_make_output.R
+	Rscript -e "rmarkdown::render('report/final_report.Rmd', output_file = 'report.html')"
+
+clean:
+	rm -f report/report.html
+
