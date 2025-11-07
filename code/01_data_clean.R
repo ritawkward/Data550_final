@@ -22,3 +22,9 @@ clean_data <- clean_data %>% sample_n(min(10000, nrow(clean_data)))
 save_path <- file.path("data", "clean_data.RData")
 save(clean_data, file = save_path)
 cat("✅ Data cleaning complete. Saved cleaned data to:", normalizePath(save_path), "\n")
+
+# Save also as CSV file for viewing
+write.csv(clean_data, "data/clean_data.csv", row.names = FALSE)
+cat("✅ Cleaned CSV saved to: data/clean_data.csv\n")
+
+
