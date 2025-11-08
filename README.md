@@ -38,7 +38,7 @@ Data550_final/
 │  └─ auc_table.csv            # (later)
 ├─ report/
 │  ├─ final_report.Rmd
-│  └─ report.html
+│  └─ final_report.html
 ├─ Makefile
 └─ README.md
 
